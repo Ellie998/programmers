@@ -7,13 +7,15 @@ console.time("선택 정렬 시간 측정");
 
 for (let i in arr) {
   let min_index = i;
+  let min;
   for (let j = i + 1; j < arr.length; j++) {
     if (arr[min_index] > arr[j]) {
       min_index = j;
-      const temp = arr[min_index];
-      arr[min_index] = arr[j];
-      arr[j] = arr[temp];
+      min = arr[j];
     }
+    const temp = arr[min_index];
+    arr[min_index] = arr[i];
+    arr[i] = arr[temp];
   }
 }
 
