@@ -22,6 +22,7 @@ function partition(list, l, r) {
       j--;
     }
     if (i < j) {
+      // 조건식 헷갈렸음
       swap(list, i, j);
     }
   }
