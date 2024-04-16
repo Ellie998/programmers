@@ -14,21 +14,14 @@
 
 function solution(num_list) {
     // idx, sum 선언
-    // let idx = 0;
+    let idx = 0;
     const sum = [0,0];
     
-    // while(idx<Math.round(num_list.length/2)){
-    //     const [odd, even] = [num_list[idx*2], num_list[idx*2+1]]
-    //     [sum[0],sum[1]] = [sum[0] + odd, sum[1] + even];
-    //     idx++;
-    // }
-    
-    num_list.forEach((num,i)=>{
-        if(i%2 === 1){
-            sum[1] += num;
-        } else {
-            sum[0] += num;
-        }
-    })
+    while(idx<Math.round(num_list.length/2)){
+        const [odd, even] = [num_list[idx*2],num_list[idx*2+1]?num_list[idx*2+1]:0];
+        [sum[0],sum[1]] = [sum[0] + odd, sum[1] + even];
+        idx++;
+    }
+
     return sum[0]===sum[1]? sum[0]: Math.max(...sum);
 }
